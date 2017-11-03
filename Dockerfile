@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-MAINTAINER xujinkai <jack777@xujinkai.net>
+MAINTAINER xiaobinxu <mail@xiaobinxu.com>
 
 RUN apk update && \
 	apk add --no-cache --update bash && \
@@ -16,7 +16,6 @@ RUN apk update && \
 
 ADD files/start.sh /conf-copy/start.sh
 ADD files/aria2.conf /conf-copy/aria2.conf
-ADD files/on-complete.sh /conf-copy/on-complete.sh
 
 RUN chmod +x /conf-copy/start.sh
 
@@ -25,6 +24,5 @@ VOLUME ["/data"]
 VOLUME ["/conf"]
 EXPOSE 6800
 EXPOSE 80
-EXPOSE 8080
 
 CMD ["/conf-copy/start.sh"]
